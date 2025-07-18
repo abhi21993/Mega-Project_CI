@@ -109,7 +109,7 @@ pipeline {
                             
                             # Update the image tag in the manifest.yaml file
                             cd Mega-Project-CD
-                            sed -i "s|adijaiswal/bankapp:.*|adijaiswal/bankapp:${IMAGE_TAG}|" Manifest/manifest.yaml
+                            sed -i "s|abhishekfpt/bankapp:.*|abhishekfpt/bankapp:${IMAGE_TAG}|" Manifest/manifest.yaml
                             
                             # Confirm changes
                             echo "Updated manifest file contents:"
