@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'git', url: 'https://github.com/jaiswaladi246/Mega-Project-CI.git'
+                git branch: 'main', credentialsId: 'git', url: 'https://github.com/abhi21993/Mega-Project_ci.git'
             }
         }
         
@@ -74,7 +74,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                        sh "docker build -t adijaiswal/bankapp:$IMAGE_TAG ."
+                        sh "docker build -t abhishekfpt/bankapp:$IMAGE_TAG ."
                     }
                 }
             }
@@ -82,7 +82,7 @@ pipeline {
         
         stage('Scan Image') {
             steps {
-                sh "trivy image --format table -o image-report.html adijaiswal/bankapp:$IMAGE_TAG"
+                sh "trivy image --format table -o image-report.html abhishekfpt/bankapp:$IMAGE_TAG"
             }
         }
         
@@ -90,7 +90,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                        sh "docker push adijaiswal/bankapp:$IMAGE_TAG"
+                        sh "docker push abhishekfpt/bankapp:$IMAGE_TAG"
                     }
                 }
             }
@@ -105,7 +105,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
                         sh '''
                             # Clone the Mega-Project-CD repository
-                            git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/jaiswaladi246/Mega-Project-CD.git
+                            git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/abhi21993/mega-project-cd.git
                             
                             # Update the image tag in the manifest.yaml file
                             cd Mega-Project-CD
