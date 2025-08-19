@@ -154,9 +154,9 @@ post {
             emailext (
                 subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                 body: body,
-                to: '567adddi.jais@gmail.com',
-                from: 'jenkins@devopsshack.com',
-                replyTo: 'jenkins@devopsshack.com',
+                to: 'meabhishek.mishra04@gmail.com',
+                from: 'meabhishek.mishra03@gmail.com',
+                replyTo: 'meabhishek.mishra02@gmail.com',
                 mimeType: 'text/html',
                
             )
